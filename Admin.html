@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Order Notification - Argrich Admin</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #F5F5F5;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff;">
+        <!-- Header -->
+        <div style="text-align: center; padding: 20px 0; border-bottom: 1px solid #E4E7EC;">
+            <img src="./assets/Argrich Logo Full 00.png" alt="Argrich Logo" style="max-width: 200px; height: auto;">
+        </div>
+
+        <!-- Notification Header -->
+        <div style="padding: 20px; background-color: #005C2D; color: #ffffff; border-radius: 8px; margin: 20px 0;">
+            <h1 style="margin: 0; font-size: 24px;">New Order Received</h1>
+            <p style="margin: 10px 0 0 0;">Order #{{ORDER_NUMBER}} | {{ORDER_DATE}}</p>
+        </div>
+
+        <!-- Customer Information -->
+        <div style="background-color: #ffffff; border: 1px solid #E4E7EC; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+            <h2 style="color: #101928; font-size: 20px; margin: 0 0 15px 0;">Customer Details</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 8px 0; color: #666; width: 150px;">Name:</td>
+                    <td style="padding: 8px 0; color: #101928; font-weight: 500;">{{CUSTOMER_NAME}}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; color: #666;">Email:</td>
+                    <td style="padding: 8px 0; color: #101928; font-weight: 500;">{{CUSTOMER_EMAIL}}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; color: #666;">Phone:</td>
+                    <td style="padding: 8px 0; color: #101928; font-weight: 500;">{{CUSTOMER_PHONE}}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; color: #666;">Shipping Address:</td>
+                    <td style="padding: 8px 0; color: #101928; font-weight: 500;">{{SHIPPING_ADDRESS}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Order Details -->
+        <div style="background-color: #ffffff; border: 1px solid #E4E7EC; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+            <h2 style="color: #101928; font-size: 20px; margin: 0 0 15px 0;">Order Details</h2>
+            
+            <!-- Product Template - Repeat for each product -->
+            <div style="border-bottom: 1px solid #C6C6C6; padding: 15px 0;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="width: 80px; vertical-align: top;">
+                            <div style="background-color: #D9D9D9; border-radius: 5px; width: 80px; height: 80px; overflow: hidden;">
+                                <img src="{{PRODUCT_IMAGE}}" alt="{{PRODUCT_NAME}}" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </td>
+                        <td style="padding-left: 15px; vertical-align: top;">
+                            <h3 style="color: #101928; font-size: 16px; margin: 0 0 5px 0;">{{PRODUCT_NAME}}</h3>
+                            <p style="color: #878787; font-size: 14px; margin: 0 0 5px 0;">SKU: {{PRODUCT_SKU}}</p>
+                            <table style="width: 100%; margin-top: 5px;">
+                                <tr>
+                                    <td style="color: #666; font-size: 14px;">Quantity: {{QUANTITY}}</td>
+                                    <td style="color: #005C2D; font-size: 16px; font-weight: bold; text-align: right;">₦{{PRICE}}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Order Summary -->
+            <div style="margin-top: 20px;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="padding: 8px 0; color: #666;">Subtotal</td>
+                        <td style="padding: 8px 0; color: #101928; text-align: right; font-weight: bold;">₦{{SUBTOTAL}}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 0; color: #666;">Shipping</td>
+                        <td style="padding: 8px 0; color: #101928; text-align: right; font-weight: bold;">₦{{SHIPPING}}</td>
+                    </tr>
+                    <tr style="border-top: 2px solid #E4E7EC;">
+                        <td style="padding: 15px 0; color: #101928; font-size: 18px; font-weight: bold;">Total</td>
+                        <td style="padding: 15px 0; color: #005C2D; font-size: 18px; font-weight: bold; text-align: right;">₦{{TOTAL}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Action Button -->
+        <div style="text-align: center; padding: 20px 0;">
+            <a href="{{ADMIN_ORDER_URL}}" style="display: inline-block; padding: 15px 30px; background-color: #005C2D; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: bold;">View Order Details</a>
+        </div>
+
+        <!-- Additional Information -->
+        <div style="background-color: #F9FAFB; border: 1px solid #E4E7EC; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+            <h2 style="color: #101928; font-size: 16px; margin: 0 0 10px 0;">Additional Information</h2>
+            <p style="color: #666; margin: 0;">Payment Method: {{PAYMENT_METHOD}}</p>
+            <p style="color: #666; margin: 5px 0 0 0;">Payment Status: {{PAYMENT_STATUS}}</p>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 20px; color: #666; font-size: 12px; border-top: 1px solid #E4E7EC;">
+            <p style="margin: 0;">This is an automated message from Argrich Admin System</p>
+            <p style="margin: 5px 0;">© 2025 Argrich. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
